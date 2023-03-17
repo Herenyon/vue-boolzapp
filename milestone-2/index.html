@@ -92,19 +92,20 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </div>
-            <div class="container-messaggi" >
+            <div class="container-messaggi">
                 <div v-for="contact in contacts">
-                <div class="chat-inviati" >
-                    <div class="messaggi-inviati" >
-                        {{contact.messages.message}}
+                    <div class="chat-inviati" v-for="message in contact.messages">
+
+                        <div class="messaggi-inviati" v-if="message.status === 'sent'">
+                            {{ message.message }}
+                        </div>
+                    </div>
+                    <div class="chat-ricevuti" v-for="message in contact.messages">
+                        <div class="messaggi-ricevuti" v-if="message.status === 'received'">
+                            {{ message.message }}
+                        </div>
                     </div>
                 </div>
-                <div class="chat-ricevuti">
-                    <div class="messaggi-ricevuti">
-                        
-                    </div>
-                </div>
-            </div>
 
             </div>
             <div class="container-input-messaggio">
