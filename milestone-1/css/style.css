@@ -18,29 +18,15 @@ body {
 
 .container-laterale {
 
-
+    max-width: 500px;
     padding: 50px 0 50px 50px;
     display: flex;
-
-
-}
-
-.container-main {
-
-    width: 90rem;
+    height: calc(100vh - 50px);
 
 }
 
-.container-laterale {
-    display: flex;
-    width: 500px;
-
-}
-
-
-
-.container-menu-superiore {
-    width: 100%;
+.container-menu {
+    /* width: 100%; */
     align-items: center;
     background-color: #eaeaea;
 
@@ -50,7 +36,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
+    height: 100px;
+    border-right: 2px solid #e3e3e3;
 }
 
 .container-foto {
@@ -60,7 +48,7 @@ body {
 }
 
 .container-foto>img {
-    width: 30%;
+    width: 25%;
 
     border-radius: 50%;
 }
@@ -122,7 +110,7 @@ a {
     width: 80%;
     border-radius: 0%;
     border: none;
-    height: 50%;
+    height: 3.125rem;
 
 
 }
@@ -145,23 +133,19 @@ a {
     display: flex;
 }
 
-.container-contatti {
-
-    background-color: white;
-
-    overflow-y: scroll;
-}
 
 .lista-contatti {
     background-color: white;
     list-style: none;
     overflow-y: scroll;
-    height: 63%;
-
+    
+height: calc(100vh - 420px);
 }
 
 .list-item-contatti {
-    margin: 20px 0;
+    padding: 10px 0;
+    border-top: 1px solid #fcfcfc;
+    border-bottom: 1px solid #fcfcfc;
 
 }
 
@@ -176,6 +160,7 @@ a {
     margin: 50px 50px 50px 0;
     flex-grow: 10;
     background-color: #eaeaea;
+    height: calc(100vh - 150px);
 }
 
 .container-chat>.container-piccolo {
@@ -189,12 +174,51 @@ a {
 
 .container-messaggi {
     background-image: url(../../img/mine.jpg);
-    height: calc(100% - 150px);
+    height: calc(100% - 170px);
+    overflow-y: scroll;
 }
 
+.chat-inviati{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.messaggi-inviati{
 
+    background-color: #d6f8bc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 40px;
+    max-width: 30%;
+}
+.chat-ricevuti{
+    display: flex;
+    justify-content: flex-start;
+}
+.messaggi-ricevuti{
+    max-width: 30%;
+    background-color: white;
+    border-radius: 10px;
+        padding: 10px;
+        margin: 40px
+}
 .container-input-messaggio {
-    margin-top: auto;
-    height: 60px;
-
+    font-size: 1.25rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6a727c;
+    padding: 30px;
+}
+.input-text{
+    background-color: white;
+        width: 80%;
+            border-radius: 5px;
+            border: none;
+            margin: 0 4rem;
+            height: 40px;
+}
+.input-text::placeholder{
+    padding-left: 20px;
 }
