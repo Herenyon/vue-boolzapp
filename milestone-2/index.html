@@ -79,10 +79,10 @@
         </div>
         <div class="container-chat">
             <div class="container-profilo">
-                <div class="container-foto">
-                    <img src="../img/avatar_1.jpg" alt="">
+                <div class="container-foto" v-if="contattoSelezionato">
+                    <img :src="contattoSelezionato.avatar" alt="">
                     <div>
-                        <h2>Michele</h2>
+                        <h2>{{contattoSelezionato.name}}</h2>
                         <small> ultimo accesso ieri alle 12.00 </small>
                     </div>
                 </div>
@@ -93,22 +93,22 @@
                 </div>
             </div>
             <div class="container-messaggi">
-                <div v-for="contact in contacts">
-                    <div class="chat-inviati" v-for="message in contact.messages">
+                
+                    <div class="chat-inviati" v-for="contact in contattoChat">
 
-                        <div class="messaggi-inviati" v-if="message.status === 'sent'">
+                        <div class="messaggi-inviati" v-if="contact.status === 'sent'">
                             
-                            {{ message.message }}
-                            <span> {{ orarioMessaggi(message.date) }}</span>
+                            {{ contact.message }}
+                            <span> {{ orarioMessaggi(contact.date) }}</span>
                         </div>
                     </div>
-                    <div class="chat-ricevuti" v-for="message in contact.messages">
-                        <div class="messaggi-ricevuti" v-if="message.status === 'received'">
-                            {{ message.message }}
-                           <span> {{ orarioMessaggi(message.date) }}</span>
+                    <div class="chat-ricevuti" v-for="contact in contattoChat">
+                        <div class="messaggi-ricevuti" v-if="contact.status === 'received'">
+                            {{ contact.message }}
+                           <span> {{ orarioMessaggi(contact.date) }}</span>
                         </div>
                     </div>
-                </div>
+                
 
             </div>
             <div class="container-input-messaggio">

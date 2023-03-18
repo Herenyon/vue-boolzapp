@@ -9,6 +9,9 @@ createApp({
         return {
             
             contattoAttivo: null,
+            contattoSelezionato: null,
+            contattoChat: [],
+            
             contacts: [
                 {
                     name: 'Michele',
@@ -183,9 +186,14 @@ createApp({
         clickContatto(index){
             if(this.contattoAttivo === index){
                 this.contattoAttivo = null;
+                this.contattoSelezionato = null;
+                
             }
             else{
                 this.contattoAttivo = index;
+                this.contattoSelezionato = this.contacts[index];
+                this.contattoChat = this.contacts[index].messages;
+                console.log(this.contattoChat)
             }
         }
 
