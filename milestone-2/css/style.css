@@ -228,3 +228,13 @@ a {
 .input-text::placeholder {
     padding-left: 20px;
 }
+
+.messaggi-inviati>span, .messaggi-ricevuti>span{
+    font-size: .625rem;
+    color: #d0dcef;
+    margin-bottom: 0 ;
+}
+.click-contatto{
+
+    background-color: #bebebe;
+}

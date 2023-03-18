@@ -54,7 +54,7 @@
                 </div>
 
                 <ul class="lista-contatti">
-                    <li class="container-piccolo list-item-contatti" v-for="contact in contacts">
+                    <li class="container-piccolo list-item-contatti" v-for="(contact, index) in contacts" :class="{'click-contatto': index === contattoAttivo}" @click="clickContatto(index)">
                         <img :src="contact.avatar" alt="">
                         <div class="container-info-contatti">
                             <div>
@@ -97,12 +97,15 @@
                     <div class="chat-inviati" v-for="message in contact.messages">
 
                         <div class="messaggi-inviati" v-if="message.status === 'sent'">
+                            
                             {{ message.message }}
+                            <span> {{ orarioMessaggi(message.date) }}</span>
                         </div>
                     </div>
                     <div class="chat-ricevuti" v-for="message in contact.messages">
                         <div class="messaggi-ricevuti" v-if="message.status === 'received'">
                             {{ message.message }}
+                           <span> {{ orarioMessaggi(message.date) }}</span>
                         </div>
                     </div>
                 </div>

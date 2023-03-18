@@ -7,6 +7,8 @@ createApp({
 
     data() {
         return {
+            
+            contattoAttivo: null,
             contacts: [
                 {
                     name: 'Michele',
@@ -172,6 +174,22 @@ createApp({
             ]
 
         }
+    },
+    methods: {
+        orarioMessaggi(orario){
+            return orario.split(' ')[1];
+        },
+
+        clickContatto(index){
+            if(this.contattoAttivo === index){
+                this.contattoAttivo = null;
+            }
+            else{
+                this.contattoAttivo = index;
+            }
+        }
+
+
     }
 
 
