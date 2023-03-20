@@ -11,7 +11,11 @@ createApp({
             contattoAttivo: null,
             contattoSelezionato: null,
             contattoChat: [],
+            
+            messaggioUtente: '',
+            inputUtente: [],
 
+            contoClick: -1,
             contacts: [
                 {
                     name: 'Michele',
@@ -196,6 +200,15 @@ createApp({
                 console.log(this.contattoChat)
 
             }
+        },
+        clickEnter(){
+           this.inputUtente.push(this.messaggioUtente);
+           this.messaggioUtente = '',
+            console.log(this.inputUtente),
+            console.log(this.messaggioUtente)
+            this.contoClick ++
+            console.log(this.contoClick)
+
         }
 
 

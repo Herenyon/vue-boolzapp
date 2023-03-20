@@ -101,6 +101,7 @@
 
                             {{ contact.message }}
                             <span> {{ orarioMessaggi(contact.date) }}</span>
+                           
                         </div>
                     </div>
 
@@ -112,6 +113,25 @@
                     </div>
                 </div>
 
+                <div class="chat-inviati">
+                
+                    <div class="messaggi-inviati" v-for="item in inputUtente">
+                        <div>
+                        {{ item }}
+                        </div>
+                        <!-- <span> {{ orarioMessaggi(contact.date) }}</span> -->
+                
+                    </div>
+                </div>
+                
+                <!-- <div class="chat-ricevuti">
+                    <div class="messaggi-ricevuti" v-if="contact.status === 'received'">
+                        {{ contact.message }}
+                        <span> {{ orarioMessaggi(contact.date) }}</span>
+                    </div>
+                </div>
+                </div> -->
+
             </div>
             <div class="container-input-messaggio">
 
@@ -119,7 +139,7 @@
                 <i class="fa-regular fa-face-smile"></i>
 
 
-                <input type="text" class="input-text" placeholder="Scrivi un messaggio">
+                <input type="text" class="input-text" placeholder="Scrivi un messaggio" v-model="messaggioUtente" v-on:keyup.enter="clickEnter">
 
                 <i class="fa-solid fa-microphone"></i>
 
