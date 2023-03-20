@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <!-- bootstrap -->
+
 </head>
 
 <body v-cloak>
@@ -101,7 +101,7 @@
 
                             {{ contact.message }}
                             <span> {{ orarioMessaggi(contact.date) }}</span>
-                           
+
                         </div>
                     </div>
 
@@ -114,45 +114,50 @@
                 </div>
 
                 <div class="chat-inviati">
-                
+
                     <div class="messaggi-inviati" v-for="item in inputUtente">
-                        <div>
+
                         {{ item }}
-                        </div>
-                        <!-- <span> {{ orarioMessaggi(contact.date) }}</span> -->
-                
+
+                        <span> {{ item.date }}</span>
+
                     </div>
                 </div>
-                
-                <!-- <div class="chat-ricevuti">
-                    <div class="messaggi-ricevuti" v-if="contact.status === 'received'">
-                        {{ contact.message }}
-                        <span> {{ orarioMessaggi(contact.date) }}</span>
+
+                <div class="chat-ricevuti">
+                    <div class="messaggi-ricevuti" v-for="item in inputUtente">
+                        {{ item }}
+                        <span> {{ item.date }}</span>
                     </div>
                 </div>
-                </div> -->
+            <!-- </div> -->
 
-            </div>
-            <div class="container-input-messaggio">
-
-
-                <i class="fa-regular fa-face-smile"></i>
+        </div>
+        <div class="container-input-messaggio">
 
 
-                <input type="text" class="input-text" placeholder="Scrivi un messaggio" v-model="messaggioUtente" v-on:keyup.enter="clickEnter">
-
-                <i class="fa-solid fa-microphone"></i>
+            <i class="fa-regular fa-face-smile"></i>
 
 
-            </div>
+            <input type="text" class="input-text" placeholder="Scrivi un messaggio" v-model="messaggioUtente"
+                v-on:keyup.enter="clickEnter">
+
+            <i class="fa-solid fa-microphone"></i>
 
 
         </div>
+
+
+    </div>
 
     </div>
 
     <!-- vue.js  -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- luxon -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js
+    "></script>
     <!-- my js  -->
     <script src="js/main.js"></script>
 </body>

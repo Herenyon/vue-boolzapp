@@ -216,7 +216,14 @@ createApp({
 
             this.contoClick++;
             
-           
+            setTimeout(function () {
+                this.contattoChat.push({
+                    date: 'this.data this.orarioStringa',
+                    message: 'ok',
+                    status: 'received'
+                });
+
+            }, 1000);
            console.log(this.contattoChat);
             
         },
