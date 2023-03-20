@@ -7,11 +7,11 @@ createApp({
 
     data() {
         return {
-            
+
             contattoAttivo: null,
             contattoSelezionato: null,
             contattoChat: [],
-            
+
             contacts: [
                 {
                     name: 'Michele',
@@ -179,24 +179,25 @@ createApp({
         }
     },
     methods: {
-        orarioMessaggi(orario){
+        orarioMessaggi(orario) {
             return orario.split(' ')[1];
         },
 
-        clickContatto(index){
-            if(this.contattoAttivo === index){
+        clickContatto(index) {
+            if (this.contattoAttivo === index) {
                 this.contattoAttivo = null;
                 this.contattoSelezionato = null;
-                
+
             }
-            else{
+            else {
                 this.contattoAttivo = index;
                 this.contattoSelezionato = this.contacts[index];
                 this.contattoChat = this.contacts[index].messages;
                 console.log(this.contattoChat)
+
             }
         }
-
+    
 
     }
 
