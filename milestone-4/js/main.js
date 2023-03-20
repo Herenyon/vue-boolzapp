@@ -13,6 +13,7 @@ createApp({
             contattoChat: [],
             inputUtente: {},
             messaggioUtente: '',
+            ricercaContatto: '',
             data: DateTime.now().toLocaleString(),
             orario: DateTime.fromISO("09:24:15"),
 
@@ -201,7 +202,7 @@ createApp({
                 this.contattoAttivo = index;
                 this.contattoSelezionato = this.contacts[index];
                 this.contattoChat = this.contacts[index].messages;
-                console.log(this.contattoChat);
+                // console.log(this.contattoChat);
 
             }
         },
@@ -223,17 +224,29 @@ createApp({
                 });
             }, 1000);
 
-            console.log(this.contattoChat);
+            // console.log(this.contattoChat);
 
         },
-        // dataOra(){
+       barraRicerca(){
+    
+          console.log(ricercaContatto);
+          if(this.ricercaContatto !== ''){
+          return this.contacts.name.filter(element => element.toLowerCase().includes(this.ricercaContatto.toLowerCase()));
+           }
+           else{
+            return this.contact.name;
+           }
+       }
 
-
-        // }
-
-
+    },
+    computed: {
+        ricercaContatti() {
+            return this.contacts.filter(p => {
+               
+                return p.name.toLowerCase().indexOf(this.ricercaContatto.toLowerCase()) != -1;
+            });
+        }
     }
-
 
 
 

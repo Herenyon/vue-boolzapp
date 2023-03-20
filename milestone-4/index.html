@@ -50,11 +50,11 @@
                 <div class="container-ricerca">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
 
-                    <input type="search" class="barra-ricerca" placeholder="Cerca o inizia una nuova chat">
+                    <input type="search" class="barra-ricerca" placeholder="Cerca o inizia una nuova chat" v-model="ricercaContatto">
                 </div>
 
                 <ul class="lista-contatti">
-                    <li class="container-piccolo list-item-contatti" v-for="(contact, index) in contacts"
+                    <li class="container-piccolo list-item-contatti" v-for="(contact, index) in ricercaContatti"
                         :class="{'click-contatto': index === contattoAttivo}" @click="clickContatto(index)">
                         <img :src="contact.avatar" alt="">
                         <div class="container-info-contatti">
