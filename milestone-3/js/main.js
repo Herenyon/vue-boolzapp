@@ -1,7 +1,7 @@
 'use strict'
 
 const { createApp } = Vue;
-
+let DateTime = luxon.DateTime;
 
 createApp({
 
@@ -11,10 +11,13 @@ createApp({
             contattoAttivo: null,
             contattoSelezionato: null,
             contattoChat: [],
-            
+            inputUtente: {},
             messaggioUtente: '',
-            inputUtente: [],
-
+            data: DateTime.now().toLocaleString(),
+            orario: DateTime.fromISO("09:24:15"),
+           
+            
+           
             contoClick: -1,
             contacts: [
                 {
@@ -183,6 +186,7 @@ createApp({
         }
     },
     methods: {
+        
         orarioMessaggi(orario) {
             return orario.split(' ')[1];
         },
@@ -197,19 +201,29 @@ createApp({
                 this.contattoAttivo = index;
                 this.contattoSelezionato = this.contacts[index];
                 this.contattoChat = this.contacts[index].messages;
-                console.log(this.contattoChat)
-
+                console.log(this.contattoChat);
+               
             }
         },
-        clickEnter(){
-           this.inputUtente.push(this.messaggioUtente);
-           this.messaggioUtente = '',
-            console.log(this.inputUtente),
-            console.log(this.messaggioUtente)
-            this.contoClick ++
-            console.log(this.contoClick)
+        clickEnter() {
+            // this.inputUtente.push(this.messaggioUtente); 
+            this.contattoChat.push({ 
+                date:'this.data this.orarioStringa',
+                message: this.messaggioUtente,
+                status: 'sent'
+            }) ;
+            this.messaggioUtente = '';
 
-        }
+            this.contoClick++;
+            
+           
+           console.log(this.contattoChat);
+            
+        },
+        // dataOra(){
+
+
+        // }
 
 
     }
