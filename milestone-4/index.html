@@ -22,9 +22,11 @@
 
 <body v-cloak>
     <div id="app" class="giga-container">
-
+        <!-- inizio container laterale  -->
         <div class="container-laterale">
+            <!-- inizio container informazioni della barra laterale  -->
             <div class="container-menu">
+                <!-- container foto profilo e icone  -->
                 <div class="container-profilo">
                     <div class="container-foto">
                         <img src="../img/avatar_io.jpg" alt="">
@@ -36,6 +38,7 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+                <!-- inizio container notifiche desktop  -->
                 <div class="container-notifiche">
                     <div class="container-piccolo">
                         <div class="testo-notifica">
@@ -47,15 +50,22 @@
                         </div>
                     </div>
                 </div>
+                <!-- fine container notifiche desktop  -->
+
+                <!-- inizio container barra di ricerca  -->
                 <div class="container-ricerca">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
 
-                    <input type="search" class="barra-ricerca" placeholder="Cerca o inizia una nuova chat" v-model="ricercaContatto">
+                    <input type="search" class="barra-ricerca" placeholder="Cerca o inizia una nuova chat"
+                        v-model="ricercaContatto">
                 </div>
+                <!-- fine container barra di ricerca  -->
 
+                <!-- inizio lista delle chat  -->
                 <ul class="lista-contatti">
                     <li class="container-piccolo list-item-contatti" v-for="(contact, index) in ricercaContatti"
                         :class="{'click-contatto': index === contattoAttivo}" @click="clickContatto(index)">
+                        <!-- immagine di profilo del contatto della chat  -->
                         <img :src="contact.avatar" alt="">
                         <div class="container-info-contatti">
                             <div>
@@ -69,34 +79,39 @@
                             </div>
                         </div>
                     </li>
-
-
                 </ul>
-
-
+                <!-- fine lista delle chat  -->
             </div>
-
-
         </div>
+        <!-- fine container laterale  -->
+
+        <!-- inizio container messaggi di destra  -->
         <div class="container-chat">
+            <!-- inizio container foto profilo contatto selezionato  -->
             <div class="container-profilo">
                 <div class="container-foto" v-if="contattoSelezionato">
+                    <!-- immagine di profilo contatto selezionato  -->
                     <img :src="contattoSelezionato.avatar" alt="">
                     <div>
                         <h2>{{contattoSelezionato.name}}</h2>
                         <small> ultimo accesso ieri alle 12.00 </small>
                     </div>
                 </div>
+                <!-- icone azioni profilo  -->
                 <div class="container-icone-profilo">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </div>
-            <div class="container-messaggi">
-                <div v-for="contact in contattoChat">
-                    <div class="chat-inviati">
+            <!-- fine container foto profilo contatto selezionato  -->
 
+            <!-- inizo container delle chat  -->
+            <div class="container-messaggi">
+                <!-- inizio messaggi predefiniti dall'esercizio  -->
+                <div v-for="contact in contattoChat">
+                    <!-- inizio messaggi inviati predefiniti  -->
+                    <div class="chat-inviati">
                         <div class="messaggi-inviati" v-if="contact.status === 'sent'">
 
                             {{ contact.message }}
@@ -104,52 +119,54 @@
 
                         </div>
                     </div>
+                    <!-- fine messaggi inviati predefiniti  -->
 
+                    <!-- inizio messaggi ricevuti predefiniti  -->
                     <div class="chat-ricevuti">
                         <div class="messaggi-ricevuti" v-if="contact.status === 'received'">
                             {{ contact.message }}
                             <span> {{ orarioMessaggi(contact.date) }}</span>
                         </div>
                     </div>
+                    <!-- inizio messaggi ricevuti predefiniti  -->
                 </div>
+                <!-- fine messaggi predefiniti dall'esercizio  -->
 
+                <!-- inizio messaggi inviati dall'utente  -->
                 <div class="chat-inviati">
-
                     <div class="messaggi-inviati" v-for="item in inputUtente">
 
                         {{ item }}
-
                         <span> {{ item.date }}</span>
 
                     </div>
                 </div>
+                <!-- fine messaggi inviati dall'utente  -->
 
+                <!-- inizio messaggi ricevuti dal "bot" -->
                 <div class="chat-ricevuti">
                     <div class="messaggi-ricevuti" v-for="item in inputUtente">
                         {{ item }}
                         <span> {{ item.date }}</span>
                     </div>
                 </div>
-                <!-- </div> -->
-
             </div>
+            <!-- fine messaggi ricevuti dal "bot" -->
+
+            <!-- inizio container footer con input per messaggi inviati dall'utente  -->
             <div class="container-input-messaggio">
-
-
                 <i class="fa-regular fa-face-smile"></i>
-
-
+                <!-- input messaggi  -->
                 <input type="text" class="input-text" placeholder="Scrivi un messaggio" v-model="messaggioUtente"
                     v-on:keyup.enter="clickEnter">
 
                 <i class="fa-solid fa-microphone"></i>
-
-
             </div>
+            <!-- fine container footer con input per messaggi inviati dall'utente  -->
 
 
         </div>
-
+        <!-- fine container delle chat  -->
     </div>
 
     <!-- vue.js  -->

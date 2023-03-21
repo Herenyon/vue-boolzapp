@@ -7,15 +7,19 @@ createApp({
 
     data() {
         return {
-
+            // variabili per la selezione chat 
             contattoAttivo: null,
             contattoSelezionato: null,
+
+
             contattoChat: [],
             inputUtente: {},
+            // input messaggio dell'utente 
             messaggioUtente: '',
+            // input barra di ricerca 
             ricercaContatto: '',
-            data: DateTime.now().toLocaleString(),
-            orario: DateTime.fromISO("09:24:15"),
+            // data: DateTime.now().toLocaleString(),
+            // orario: DateTime.fromISO("09:24:15"),
 
 
 

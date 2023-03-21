@@ -11,11 +11,11 @@ body {
 
 
 .giga-container {
-    /* padding: 3.125rem; */
+    
     height: 100vh;
     display: flex;
 }
-
+/* inizio container stile container laterale  */
 .container-laterale {
 
     max-width: 500px;
@@ -32,6 +32,7 @@ body {
 
 }
 
+/* inizio stili container profilo utente  */
 .container-profilo {
     display: flex;
     justify-content: space-between;
@@ -58,7 +59,9 @@ body {
     gap: 1.25rem;
     color: #b1b1b1;
 }
+/* fine stili container profilo utente  */
 
+/* inizio container azzurro notifiche desktop  */
 .container-notifiche {
     background-color: #91dafa;
     height: 6.25rem;
@@ -84,19 +87,20 @@ a {
     border-radius: 50%;
     padding: .625rem;
 }
-
+/* fine container azzurro notifiche desktop  */
 .container-icone-profilo,
 .fa-bell-slash {
     font-size: 30px;
 }
 
-/* placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome;" */
+
 .fa-solid.fa-bell-slash {
 
     color: #91dafa;
 
 }
 
+/* inizio stile container della barra di ricerca  */
 .container-ricerca {
     display: flex;
     align-items: center;
@@ -105,7 +109,9 @@ a {
     background-color: #fafafa;
     justify-content: center;
 }
-
+.container-ricerca::placeholder{
+    padding-left: 50px;
+}
 .container-ricerca>.barra-ricerca {
     width: 80%;
     border-radius: 0%;
@@ -115,7 +121,7 @@ a {
 
 }
 
-.container-ricerca>button {
+.container-ricerca>span {
     border: 0;
     padding: 10px 30px;
     background-color: white;
@@ -126,7 +132,9 @@ a {
     padding: 10px;
     background-color: white;
 }
+/* fine stile container della barra di ricerca  */
 
+/* inizio stili lista di contatti  */
 .container-piccolo>img {
     width: 15%;
     border-radius: 50%;
@@ -155,14 +163,18 @@ a {
     width: 100%;
     margin-right: .625rem;
 }
+/* fine stili lista di contatti  */
 
+/* fine container stile container laterale  */
+
+/* inizio stile container chat a destra  */
 .container-chat {
     margin: 50px 50px 50px 0;
     flex-grow: 10;
     background-color: #eaeaea;
     height: calc(100vh - 150px);
 }
-
+/* inizio stili container del profilo selezionato  */
 .container-chat>.container-piccolo {
     height: 70px;
 }
@@ -171,7 +183,9 @@ a {
 
     width: 15%;
 }
+/* inizio stili container del profilo selezionato  */
 
+/* inizio stili container chat dei messaggi  */
 .container-messaggi {
     background-image: url(../../img/mine.jpg);
     height: calc(100% - 170px);
@@ -206,6 +220,17 @@ a {
     margin: 40px
 }
 
+.messaggi-inviati>span,
+.messaggi-ricevuti>span {
+    font-size: .625rem;
+    color: #d0dcef;
+    margin-bottom: 0;
+    margin-left: 30px;
+}
+
+/* fine stili container chat dei messaggi  */
+
+/* inizio stili footer di input utente  */
 .container-input-messaggio {
     font-size: 1.25rem;
     height: 70px;
@@ -229,15 +254,10 @@ a {
     padding-left: 20px;
 }
 
-.messaggi-inviati>span,
-.messaggi-ricevuti>span {
-    font-size: .625rem;
-    color: #d0dcef;
-    margin-bottom: 0;
-    margin-left: 30px;
-}
 
 .click-contatto {
 
     background-color: #e9ebeb;
 }
+/* inizio stili footer di input utente  */
+/* fine stile container chat a destra  */
